@@ -1,12 +1,15 @@
 pipeline {
-  agent any
-  stages {
-    stage('Run Script') {
-      steps {
-        git(url: 'https://github.com/boonietesting/TestData', branch: 'main', poll: true)
-        sh 'echo \'hello world\''
-      }
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git(url: 'https://github.com/boonietesting/TestData', branch: 'main', poll: true)
+            }
+        }
+        stage('Run Script') {
+            steps {
+                bat 'echo Hello World'
+            }
+        }
     }
-
-  }
 }
