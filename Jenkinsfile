@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Log Versions') {
       steps {
-        sh '''git --version
-java -version'''
+        sh 'sh \'./scripts/trigger_vip_job.sh\''
       }
     }
 
